@@ -1,0 +1,24 @@
+{
+  "name": "leanengine-sniper",
+  "version": "0.1.0-rc.2",
+  "description": "LeanEngine monitor middleware for express app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leancloud/leanengine-sniper"
+  },
+  "dependencies": {
+    "basic-auth": "1.0.3",
+    "cookies": "0.5.0",
+    "debug": "2.0.0",
+    "on-finished": "2.3.0",
+    "on-headers": "1.0.0",
+    "path-to-regexp": "1.2.1",
+    "underscore": "1.8.3",
+    "express": "4.13.3"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leancloud/leanengine-sniper/issues"
+  },
+  "homepage": "https://github.com/leancloud/leanengine-sniper"
+}
