@@ -1,16 +1,17 @@
 'use strict';
+/* globals $, Highcharts */
 
 loadInitialData();
 
 $(function() {
   $('#routerSelect').change(function() {
     loadInitialData({router: $('#routerSelect').val() || undefined});
-    $('#routerStatusCodeSelect').val('')
+    $('#routerStatusCodeSelect').val('');
   });
 
   $('#routerStatusCodeSelect').change(function() {
     loadInitialData({routerStatusCode: $('#routerStatusCodeSelect').val() || undefined});
-    $('#routerSelect').val('')
+    $('#routerSelect').val('');
   });
 });
 

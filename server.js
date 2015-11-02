@@ -28,6 +28,11 @@ module.exports = function(options) {
 
   router.use('/__lcSniper', authenticate, express.static(__dirname + '/public'));
 
+  router.get('/__lcSniper/recentStatistics', authenticate, function(req, res) {
+    console.log(routerCollector.recentStatistics())
+    res.send(routerCollector.recentStatistics());
+  });
+
   router.use('/__lcSniper/initial.json', authenticate, function(req, res) {
     var result = {
       routerSuccessAndError: [],

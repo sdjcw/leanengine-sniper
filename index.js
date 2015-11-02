@@ -220,19 +220,21 @@ function createCollector(options) {
     var grouped = bucket[record.urlPattern];
 
     if (!grouped) {
-      grouped = bucket[record.urlPattern] = {};
-
-      grouped.urlPattern = record.urlPattern;
-
-      counterFields.forEach(function(field) {
-        grouped[field] = record[field] || 0;
-      });
-    } else {
-      counterFields.forEach(function(field) {
-        if (record[field])
-          grouped[field] += record[field];
-      });
+      grouped = bucket[record.urlPattern] = {
+        urlPattern: record.urlPattern
+      };
     }
+
+    counterFields.forEach(function(field) {
+      if (record[field]) {
+        // 很多 grouped[field] 只有在有 record 的时候才填充值，减小最终纪录体积
+        if (grouped[field] === undefined) {
+          grouped[field] = record[field];
+        } else {
+          grouped[field] += record[field];
+        }
+      }
+    });
   };
 
   setInterval(function() {
